@@ -597,7 +597,10 @@
       callbacks[key] = button.callback;
     });
 
-    body.find(".bootbox-body").html(options.message);
+    if (typeof options.message == "string")
+      body.find(".bootbox-body").html(options.message);
+    else
+      body.find(".bootbox-body").append(options.message);
 
     if (options.animate === true) {
       dialog.addClass("fade");
